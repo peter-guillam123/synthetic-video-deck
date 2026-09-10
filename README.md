@@ -29,6 +29,19 @@ read -rsp "Deck password: " P && H=$(printf %s "$P" | shasum -a 256 | cut -d" " 
 
 To change it later, run exactly the same command again.
 
+**If a password that should work is rejected**, it is almost certainly the
+browser rather than the password. GitHub Pages serves static files with a
+ten-minute `max-age`, so a browser that loaded the deck before the password
+changed keeps checking against the old hash. `index.html` now loads the gate
+with a cache-buster to prevent this, but a page already sitting in the cache
+will still be stale: hard-refresh with `Cmd+Shift+R`, or open a private
+window. To confirm which problem you have, this compares a password against
+what is actually deployed, without the password leaving your machine:
+
+```bash
+read -rsp "Password to test: " P; H=$(printf %s "$P" | shasum -a 256 | cut -d" " -f1); unset P; L=$(curl -sL "https://peter-guillam123.github.io/synthetic-video-deck/gate.js?cb=$(date +%s)" | sed -n "s/.*const HASH = '\([^']*\)'.*/\1/p"); echo; [ "$H" = "$L" ] && echo "Matches the live deck. Hard-refresh the page." || echo "Does not match. Set the password again."
+```
+
 ## Running it
 
 Open `index.html` in a browser. Arrow keys or space to advance, `R` to

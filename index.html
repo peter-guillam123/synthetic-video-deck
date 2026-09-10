@@ -18,7 +18,18 @@
     <p class="dg-error" id="deck-gate-error" hidden>That's not it. Try again.</p>
   </form>
 </div>
-<script src="gate.js"></script>
+<script>
+  /* Load the gate with a cache-buster. GitHub Pages serves static files with a
+     ten-minute max-age, so a browser that saw the deck before the password was
+     set would keep checking against the old hash and reject every attempt.
+     The gate markup above is visible by default and gate.js is what removes
+     it, so loading this way fails closed if the script never arrives. */
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'gate.js?v=' + Date.now();
+    document.head.appendChild(s);
+  })();
+</script>
 
 
 <!-- ================================================================
