@@ -1,0 +1,911 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Too good to be true - the state of synthetic video</title>
+<link rel="preconnect" href="https://assets.guim.co.uk" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="deck-gate" role="dialog" aria-modal="true" aria-label="Password required">
+  <form class="dg-card" id="deck-gate-form">
+    <div class="dg-rule" aria-hidden="true"></div>
+    <p class="dg-kicker">Video team &middot; 10 September 2026</p>
+    <h1>Enter the <em>password</em>.</h1>
+    <p class="dg-note">These slides were written for a session rather than for the open web. The password was given out in the room.</p>
+    <input id="deck-gate-input" type="password" autocomplete="off" autofocus aria-label="Password" placeholder="Password">
+    <button type="submit">Enter</button>
+    <p class="dg-error" id="deck-gate-error" hidden>That's not it. Try again.</p>
+  </form>
+</div>
+<script src="gate.js"></script>
+
+
+<!-- ================================================================
+     TOO GOOD TO BE TRUE — where synthetic video has got to.
+     Video team, 10 September 2026. Built from the Guardian deck
+     template, second edition.
+
+     Twenty-five slides in four parts: the milestones, what still
+     breaks, provenance, and what we do about it. Driven by hand;
+     nothing advances itself.
+
+     Written to be read aloud in a room. The copy is deliberately
+     terse: the slide carries the claim, the presenter carries the
+     detail. Every specific example links out to its source as
+     anchor text in the running copy, so a claim can be checked
+     from the slide rather than from a footnote.
+
+     Slide 23 is the actual point of the session; everything before
+     it exists to make that conversation better informed. If we're
+     running short, cut 09 (the leaderboard) and 18 (the AI Act):
+     both are useful, neither carries the arc. Slide 24 is optional.
+     ================================================================ -->
+
+<deck-stage width="1920" height="1080">
+
+  <!-- ============================================================
+       01 — Cover
+       ============================================================ -->
+  <section class="slide cover" data-label="Cover">
+    <div class="rule-band"></div>
+
+    <div>
+      <p class="kicker" data-fx="rise" style="--d:80ms"><span class="group-tag">Video team</span>Where synthetic video has got to &middot; 10 September 2026</p>
+      <h1 class="wordmark" data-split data-split-base="300" data-split-step="60">Too good to be<br><em>true<span class="q-mark">.</span></em></h1>
+    </div>
+
+    <div class="cover-meta-row">
+      <p class="cover-framing" data-fx="rise" style="--d:900ms">Eighteen months ago a generated video was easy to spot. The tells we taught the newsroom have largely gone, automated detection now performs worse than guessing, and the provenance systems being announced, Apple's included, are built for photographs. What follows is what changed, what did not, and what it means for how we work.</p>
+      <div class="cover-stat-block" data-fx="rise" style="--d:1020ms">
+        <p class="cover-note-wrap"><span class="cover-note">For discussion</span></p>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true</span>
+      <span class="num">01 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02 — The argument. Three propositions rather than
+       housekeeping, so the disagreement can start on slide two.
+       ============================================================ -->
+  <section class="slide slide--spread" data-label="The argument">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">The argument</p>
+
+    <div class="slide-body">
+      <p class="brief-lede" data-fx="rise" style="--d:220ms">Three propositions. This session is worth having if the room <mark>disagrees with at least one</mark>.</p>
+
+      <div class="brief-cols">
+        <div class="brief-col" data-fx="rise" style="--d:420ms">
+          <p class="brief-eyebrow">The models arrived</p>
+          <p class="brief-body">In eighteen months generative video gained <strong>sound, plausible physics, faces that survive a cut, and environments that can be navigated</strong>. Each advance retired a category of tell.</p>
+        </div>
+        <div class="brief-col" data-fx="rise" style="--d:520ms">
+          <p class="brief-eyebrow">Detection did not</p>
+          <p class="brief-body">Every substantial test published this year finds automated detection unreliable at the point of use. <strong>This is not a technical problem awaiting a technical fix</strong>, and none is in prospect.</p>
+        </div>
+        <div class="brief-col" data-fx="rise" style="--d:620ms">
+          <p class="brief-eyebrow">The fixes are for photographs</p>
+          <p class="brief-body">SynthID, Content Credentials and Apple Reference Image point the same way, and all are strongest on stills. <strong>Video is the poor relation</strong> in every announcement of the past year.</p>
+        </div>
+      </div>
+
+      <p class="act-note" data-fx="rise" style="--d:740ms"><strong>The working assumption for this team: nothing on the horizon allows us to verify a video by looking at it, or by uploading it somewhere.</strong> Established verification - who supplied it, where they were, what corroborates it, and whether it happens to say precisely what somebody wanted said - is the method rather than the fallback.</p>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true</span>
+      <span class="num">02 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03 — Epigraph. The deck's only full yellow slide. One
+       borrowed line; don't add anything else here.
+       ============================================================ -->
+  <section class="slide yellow slide--epigraph" data-label="Epigraph">
+    <div class="rule-band"></div>
+
+    <div class="slide-body">
+      <p class="epigraph" data-split data-split-base="300" data-split-step="80">&ldquo;For a while people are really going to not trust things they see in digital spaces&rdquo;</p>
+      <p class="epigraph-attr" data-fx="rise" style="--d:1700ms">Jeff Hancock, Stanford Social Media Lab, <a href="https://www.nbcnews.com/tech/tech-news/experts-warn-collapse-trust-online-ai-deepfakes-venezuela-rcna252472" target="_blank" rel="noopener">speaking in January 2026</a></p>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true</span>
+      <span class="num">03 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       04 — Section opener: Part 1
+       ============================================================ -->
+  <section class="slide ink section-opener" data-label="Part 1 opener">
+    <div class="rule-band"></div>
+    <span class="chapter-ghost" aria-hidden="true" data-fx="ghost" style="--d:150ms">01</span>
+
+    <div class="chapter-num" data-fx="rise" style="--d:100ms">Part 1 &middot; The milestones</div>
+    <h1 data-split data-split-base="260" data-split-step="50">Eighteen <em>months.</em></h1>
+    <p class="section-dek" data-fx="rise" style="--d:780ms">Four advances, in sequence. Each is dated, because the pace is the point and it is easy to forget how recent all of this is.</p>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 1</span>
+      <span class="num">04 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05 — The rising track. Four capability eras, chronological.
+       The curve draws, then the nodes pop in sequence.
+       ============================================================ -->
+  <section class="slide" data-label="Four unlocks">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 1 &middot; The shape of it</p>
+    <h2 class="slide-title" data-split>Four things that <em>changed</em>.</h2>
+
+    <div class="slide-body">
+      <div class="era">
+        <div class="era-track">
+          <svg class="era-curve" viewBox="0 0 1680 260" preserveAspectRatio="none" aria-hidden="true">
+            <path class="fill" d="M 0,232 C 100,227 160,220 210,215 C 340,205 500,192 630,182 C 780,170 930,148 1050,128 C 1200,103 1360,72 1470,58 C 1550,48 1620,40 1680,34 L 1680,260 L 0,260 Z"></path>
+            <path class="line" d="M 0,232 C 100,227 160,220 210,215 C 340,205 500,192 630,182 C 780,170 930,148 1050,128 C 1200,103 1360,72 1470,58 C 1550,48 1620,40 1680,34"></path>
+          </svg>
+          <div class="era-node e1" data-fx="pop" style="--d:900ms"><b>05.25</b><span>Sound</span></div>
+          <div class="era-node e2" data-fx="pop" style="--d:1040ms"><b>08.25</b><span>Worlds</span></div>
+          <div class="era-node e3" data-fx="pop" style="--d:1180ms"><b>09.25</b><span>Physics</span></div>
+          <div class="era-node e4" data-fx="pop" style="--d:1320ms"><b>09.26</b><span>All of it</span></div>
+        </div>
+
+        <div class="era-labels">
+          <div class="era-label" data-fx="rise" style="--d:1440ms">
+            <h3>Sound arrived</h3>
+            <p>Veo 3. Dialogue, effects and room tone generated in the same pass as the picture. <b>Silence had been the most reliable tell.</b></p>
+          </div>
+          <div class="era-label" data-fx="rise" style="--d:1540ms">
+            <h3>Worlds arrived</h3>
+            <p><a href="https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/" target="_blank" rel="noopener">Genie 3</a>. Not a clip but a place, navigable in real time at 24fps and coherent for minutes.</p>
+          </div>
+          <div class="era-label" data-fx="rise" style="--d:1640ms">
+            <h3>Physics arrived</h3>
+            <p><a href="https://openai.com/index/sora-2/" target="_blank" rel="noopener">Sora 2</a>. A missed shot rebounds off the backboard. Weight, buoyancy and momentum broadly behave.</p>
+          </div>
+          <div class="era-label" data-fx="rise" style="--d:1740ms">
+            <h3>Then the rest</h3>
+            <p><a href="https://howaiworks.ai/blog/world-labs-atlas-world-model-2026" target="_blank" rel="noopener">Atlas</a>, nine days ago. One model across text, image, video and 3D, at a minute of camera-controlled 1440p.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 1</span>
+      <span class="num">05 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       06 — The dated ledger. Every gloss is written to one line;
+       the accent word in each headline is the source link.
+       ============================================================ -->
+  <section class="slide slide--spread" data-label="Dated ledger">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 1 &middot; The record</p>
+    <h2 class="slide-title" data-split>The same story, <em>dated</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms">Not exhaustive. These are the releases that moved something we care about.</p>
+
+    <div class="slide-body">
+      <ol class="mstones">
+        <li data-fx="rise" style="--d:280ms">
+          <span class="mstone-when">May 2025</span>
+          <div>
+            <p class="mstone-what">Veo 3 generates <em>audio</em> natively</p>
+            <p class="mstone-why">Dialogue, effects and ambience in one pass with the picture. Muting a clip to test it stopped working.</p>
+          </div>
+        </li>
+        <li data-fx="rise" style="--d:340ms">
+          <span class="mstone-when">Aug 2025</span>
+          <div>
+            <p class="mstone-what">DeepMind's <em><a href="https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/" target="_blank" rel="noopener">Genie 3</a></em></p>
+            <p class="mstone-why">The first real-time interactive world model. Now sold to the public as Project Genie.</p>
+          </div>
+        </li>
+        <li data-fx="rise" style="--d:400ms">
+          <span class="mstone-when">Sep 2025</span>
+          <div>
+            <p class="mstone-what">Sora 2, and the &ldquo;<em><a href="https://openai.com/index/sora-2/" target="_blank" rel="noopener">GPT-3.5 moment</a></em>&rdquo;</p>
+            <p class="mstone-why">OpenAI's phrase. The advance was world consistency and physical plausibility, not resolution.</p>
+          </div>
+        </li>
+        <li data-fx="rise" style="--d:460ms">
+          <span class="mstone-when">Nov 2025</span>
+          <div>
+            <p class="mstone-what"><em><a href="https://techcrunch.com/2025/11/12/fei-fei-lis-world-labs-speeds-up-the-world-model-race-with-marble-its-first-commercial-product/" target="_blank" rel="noopener">Marble</a></em>, from Fei-Fei Li's World Labs</p>
+            <p class="mstone-why">A prompt or a photograph becomes an editable, downloadable 3D environment.</p>
+          </div>
+        </li>
+        <li data-fx="rise" style="--d:520ms">
+          <span class="mstone-when">Apr 2026</span>
+          <div>
+            <p class="mstone-what">OpenAI <em><a href="https://en.wikipedia.org/wiki/Sora_(text-to-video_model)" target="_blank" rel="noopener">shuts Sora down</a></em></p>
+            <p class="mstone-why">App withdrawn 26 April, API closes 24 September. Frontier capability is not a viable product.</p>
+          </div>
+        </li>
+        <li class="is-now" data-fx="rise" style="--d:580ms">
+          <span class="mstone-when">1 Sep 2026</span>
+          <div>
+            <p class="mstone-what">World Labs announces <em><a href="https://howaiworks.ai/blog/world-labs-atlas-world-model-2026" target="_blank" rel="noopener">Atlas</a></em></p>
+            <p class="mstone-why">An omni world model, native across text, images, video and 3D. Nine days old.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 1</span>
+      <span class="num">06 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       07 — The same four releases read from our side of the desk.
+       ============================================================ -->
+  <section class="slide slide--spread" data-label="Tells we lost">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 1 &middot; What it cost us</p>
+    <h2 class="slide-title" data-split>The tells we <em>lost</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms">The same four releases, read from our side of the desk. Each retired a check that had been good enough to settle an argument.</p>
+
+    <div class="slide-body">
+      <div class="probes">
+        <div class="probe" data-fx="rise" style="--d:320ms">
+          <p class="probe-q">Silence</p>
+          <p class="probe-a">Until May 2025 generated video arrived mute, and convincing synchronised sound meant a microphone had been involved. <strong>One release removed that.</strong> Lip-sync across a multi-shot sequence, in five languages, is now a product feature.</p>
+        </div>
+        <div class="probe" data-fx="rise" style="--d:400ms">
+          <p class="probe-q">Physics</p>
+          <p class="probe-a">Water that misbehaves, cloth that floats, a ball that fails to rebound. The strongest of the surviving tells, which says rather more about the others than it does about this one.</p>
+        </div>
+        <div class="probe" data-fx="rise" style="--d:480ms">
+          <p class="probe-q">The same face twice</p>
+          <p class="probe-a">Holding a recognisable person across a cut was close to impossible, and a changed collar or a watch on the wrong wrist was a gift. Consistent characters across multi-shot sequences are now routine.</p>
+        </div>
+        <div class="probe" data-fx="rise" style="--d:560ms">
+          <p class="probe-q">One fixed camera</p>
+          <p class="probe-a">Early models managed a locked-off shot or a slow drift, and a specific camera move broke them. Camera control is now a parameter, and Atlas will hold a specified move for a minute.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 1</span>
+      <span class="num">07 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       08 — World models. The bit that isn't a clip.
+       ============================================================ -->
+  <section class="slide slide--ways slide--ways-tight slide--spread" data-label="World models">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 1 &middot; The bit that isn't a clip</p>
+    <h2 class="slide-title" data-split>When video becomes a <em>place</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:220ms">The shift most likely to matter to us, and the least discussed. A world model does not generate a video. It generates an environment, and the video is what a camera moving through it produces.</p>
+
+    <div class="slide-body">
+      <ol class="ways-list">
+        <li class="way" data-fx="rise" style="--d:340ms">
+          <span class="way-num">01</span>
+          <div class="way-main">
+            <h3>You can walk around inside it</h3>
+            <p class="way-why"><a href="https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/" target="_blank" rel="noopener">Genie 3</a>, August 2025. Each frame is generated from the prompt and from what the viewer has just done, so the place responds in real time. 720p, 24fps, coherent for minutes.</p>
+          </div>
+          <p class="way-ask">Sold as Project Genie in Google's AI Ultra tier at $200 a month. A consumer product, not a research demo.</p>
+        </li>
+        <li class="way" data-fx="rise" style="--d:480ms">
+          <span class="way-num">02</span>
+          <div class="way-main">
+            <h3>You can export it and take it away</h3>
+            <p class="way-why"><a href="https://techcrunch.com/2025/11/12/fei-fei-lis-world-labs-speeds-up-the-world-model-race-with-marble-its-first-commercial-product/" target="_blank" rel="noopener">Marble</a>, November 2025. Text, a photograph or a panorama becomes a 3D environment that can be edited and downloaded, with a <a href="https://www.worldlabs.ai/blog/announcing-the-world-api" target="_blank" rel="noopener">public API</a> since January.</p>
+          </div>
+          <p class="way-ask">The output is not a clip someone might notice is wrong. It is an asset, to be lit, shot and cut like any other.</p>
+        </li>
+        <li class="way" data-fx="rise" style="--d:620ms">
+          <span class="way-num">03</span>
+          <div class="way-main">
+            <h3>And now it is general</h3>
+            <p class="way-why"><a href="https://howaiworks.ai/blog/world-labs-atlas-world-model-2026" target="_blank" rel="noopener">Atlas</a>, nine days ago. Trained from scratch to work natively across text, images, video and 3D at once, producing a minute of camera-controlled 1440p.</p>
+          </div>
+          <p class="way-ask">The gap between a video model and a world model is closing, and the world model is the one that wins.</p>
+        </li>
+      </ol>
+
+      <p class="act-note" data-fx="rise" style="--d:760ms"><strong>Why this matters for verification.</strong> A generated clip fell apart under a camera move because it was invented frame by frame with no scene underneath. A world model has one, so it is internally consistent by construction, and a whole family of our tells goes with it.</p>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 1</span>
+      <span class="num">08 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       09 — The leaderboard. Cuttable if we're short. Its job is to
+       stop anyone standardising on a brand name.
+       ============================================================ -->
+  <section class="slide slide--spread" data-label="Leaderboard">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 1 &middot; A warning about the leaderboard</p>
+    <h2 class="slide-title" data-split>The leader isn't who you'd <em>guess</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms">Where the frontier sits this week. The names most of the room would offer are a year out of date, and one of them closes its API in a fortnight.</p>
+
+    <div class="slide-body">
+      <ol class="opts wide">
+        <li class="opt-row" data-fx="rise" style="--d:280ms"><span class="opt-n">01</span><div class="opt-main"><strong>Kling 3</strong><span>Top of the <a href="https://llm-stats.com/leaderboards/best-ai-for-video-creation" target="_blank" rel="noopener">blind-vote leaderboard</a>, from a Chinese company, at roughly ten cents a second. Native audio and lip-sync in five languages across a multi-shot sequence</span></div></li>
+        <li class="opt-row" data-fx="rise" style="--d:350ms"><span class="opt-n">02</span><div class="opt-main"><strong>Veo 3.1</strong><span>The strongest all-rounder: native audio, up to 4K, the best prompt adherence. It embeds SynthID in every frame, which for our purposes matters more than the picture quality</span></div></li>
+        <li class="opt-row" data-fx="rise" style="--d:420ms"><span class="opt-n">03</span><div class="opt-main"><strong>Seedance 2</strong><span>ByteDance. Fast, inexpensive, high on the same leaderboard, and attached to the platform where most of this material circulates</span></div></li>
+        <li class="opt-row" data-fx="rise" style="--d:490ms"><span class="opt-n">04</span><div class="opt-main"><strong>Sora 2</strong><span>Arguably still the most physically convincing motion anyone has shipped. <a href="https://en.wikipedia.org/wiki/Sora_(text-to-video_model)" target="_blank" rel="noopener">App withdrawn in April, API closes on 24 September</a></span></div></li>
+      </ol>
+
+      <p class="act-note" data-fx="rise" style="--d:620ms"><strong>Two conclusions.</strong> If we standardise on a tool, we should expect to re-standardise within a year. And the most capable models available to anyone who wants to deceive us are not necessarily the ones we hold accounts with, or the ones that mark their output.</p>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 1</span>
+      <span class="num">09 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10 — Section opener: Part 2
+       ============================================================ -->
+  <section class="slide ink section-opener" data-label="Part 2 opener">
+    <div class="rule-band"></div>
+    <span class="chapter-ghost" aria-hidden="true" data-fx="ghost" style="--d:150ms">02</span>
+
+    <div class="chapter-num" data-fx="rise" style="--d:100ms">Part 2 &middot; Weaknesses</div>
+    <h1 data-split data-split-base="260" data-split-step="50">What still <em>breaks.</em></h1>
+    <p class="section-dek" data-fx="rise" style="--d:780ms">Useful within limits. Everything in this part is a probability rather than a test, and each item will be worth less in six months than it is today.</p>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 2</span>
+      <span class="num">10 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11 — Live tells and dead tells. The right-hand column is the
+       one that changes behaviour.
+       ============================================================ -->
+  <section class="slide slide--spread" data-label="Live and dead tells">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 2 &middot; Where to look, and where not to</p>
+    <h2 class="slide-title" data-split>Live tells, dead <em>tells</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms">The right-hand column matters more. Advice that was sound two years ago is still circulating, and acting on it now produces confidence rather than accuracy.</p>
+
+    <div class="slide-body">
+      <div class="tellgrid">
+        <div class="tellcol" data-fx="rise" style="--d:320ms">
+          <p class="tellcol-lead">Still worth checking</p>
+          <p class="tellcol-sub">None of these is proof. They mark where the models remain measurably weaker.</p>
+          <ul class="telllist">
+            <li><strong>Length</strong>Quality degrades past twenty to twenty-five seconds. Convincing fakes are short, or cut.</li>
+            <li><strong>Bodies in contact, and crowds</strong>Handshakes, embraces, several interacting subjects. Coherence fails fastest wherever people meet.</li>
+            <li><strong>Text in shot</strong>Signs, badges, plates, documents, screens. Often garbled, and unusually easy to check.</li>
+            <li><strong>Water and cloth</strong>Spray, flags, loose clothing. The physics is plausible rather than correct.</li>
+            <li><strong>Continuity across a cut</strong>A watch that changes wrist, jewellery that arrives and leaves.</li>
+          </ul>
+        </div>
+
+        <div class="tellcol dead" data-fx="rise" style="--d:440ms">
+          <p class="tellcol-lead">No longer worth your time</p>
+          <p class="tellcol-sub">All were sound advice within the last two years. None will reliably catch a current model.</p>
+          <ul class="telllist">
+            <li><strong>Count the fingers</strong>The standard demo failure, now routinely correct. It has also backfired, as the next slide shows.</li>
+            <li><strong>Asymmetric eyes, misaligned ears, painted-on teeth</strong>The 2023 signature. The same prompts now produce faces nobody queries.</li>
+            <li><strong>Mute it and see if it holds up</strong>Native audio since May 2025.</li>
+            <li><strong>Check the resolution</strong>4K is standard. Genuine phone footage of a real event is usually worse.</li>
+            <li><strong>Run it through a detector</strong>Two slides on, with the numbers.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 2</span>
+      <span class="num">11 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12 — The finger-counting story. One slide, one idea. This is
+       the moment the room should go quiet; give it the space.
+       ============================================================ -->
+  <section class="slide ink slide--research" data-label="Five fingers">
+    <div class="rule-band"></div>
+
+    <p class="research-eyebrow" data-fx="rise" style="--d:80ms">March 2026 &middot; <a href="https://prospect.org/2026/04/17/american-politics-inundated-with-ai-deepfakes/" target="_blank" rel="noopener">how the finger-counting advice ended</a></p>
+    <p class="research-quote" data-split data-split-base="220" data-split-step="26">Netanyahu released a proof-of-life video. Enough people asked whether it was AI that he returned two days later, held up his hand, and <em>counted to five</em>.</p>
+    <p class="research-sub" data-fx="rise" style="--d:1700ms">The tell became the alibi. Whatever the newsroom is taught to look for becomes, from that day, the thing a fabricator knows to get right and a liar knows to perform.</p>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 2</span>
+      <span class="num">12 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       13 — The scoreboard. Four figures counting up. The method
+       note is not optional: the human figure comes from a different
+       study and must be read as an order of magnitude.
+       ============================================================ -->
+  <section class="slide slide--spread" data-label="Detection scoreboard">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 2 &middot; Automated detection</p>
+    <h2 class="slide-title" data-split>Nobody can do <em>this</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms"><a href="https://www.newsguardtech.com/special-reports/top-ai-chatbots-dont-recognize-ai-generated-videos/" target="_blank" rel="noopener">NewsGuard built twenty AI videos</a> of documented false claims, removed the watermarks with an off-the-shelf tool, and asked three chatbots twice per video whether what they were looking at was real. These are the rates at which they answered wrongly.</p>
+
+    <div class="slide-body">
+      <div class="score">
+        <div class="score-cell" data-fx="rise" style="--d:300ms">
+          <span class="score-fig" data-count="95" data-count-suffix="%" data-count-delay="420" data-count-dur="1100">95%</span>
+          <p class="score-who">Grok</p>
+          <p class="score-what">Wrong on 38 of 40 prompts. Still wrong 30% of the time with the watermark left in place.</p>
+        </div>
+        <div class="score-cell" data-fx="rise" style="--d:380ms">
+          <span class="score-fig" data-count="92.5" data-count-dp="1" data-count-suffix="%" data-count-delay="520" data-count-dur="1100">92.5%</span>
+          <p class="score-who">ChatGPT</p>
+          <p class="score-what">37 of 40. OpenAI's own position: it &ldquo;does not have the ability to determine whether content is AI-generated&rdquo;.</p>
+        </div>
+        <div class="score-cell" data-fx="rise" style="--d:460ms">
+          <span class="score-fig" data-count="78" data-count-suffix="%" data-count-delay="620" data-count-dur="1100">78%</span>
+          <p class="score-who">Gemini</p>
+          <p class="score-what">The best of the three. With the watermark present it answered every question correctly, which locates the capability in the watermark.</p>
+        </div>
+        <div class="score-cell is-us" data-fx="rise" style="--d:540ms">
+          <span class="score-fig" data-count="75.5" data-count-dp="1" data-count-suffix="%" data-count-delay="720" data-count-dur="1100">75.5%</span>
+          <p class="score-who">Us</p>
+          <p class="score-what">People shown high-quality deepfake video under test conditions identified it correctly 24.5% of the time.</p>
+        </div>
+      </div>
+
+      <p class="score-method" data-fx="rise" style="--d:700ms"><strong>A note on the figures.</strong> The three machine results are a single study, forty prompts per model, and they measure a general-purpose chatbot being asked a question rather than a purpose-built forensic tool. The human figure comes from separate research on a different task and should be read as an order of magnitude rather than a like-for-like comparison. What survives the caveats is the shape: <strong>with the watermark gone, every result here is at or below guesswork, and the machines are no better than we are.</strong></p>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 2</span>
+      <span class="num">13 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       14 — Section opener: Part 3
+       ============================================================ -->
+  <section class="slide ink section-opener" data-label="Part 3 opener">
+    <div class="rule-band"></div>
+    <span class="chapter-ghost" aria-hidden="true" data-fx="ghost" style="--d:150ms">03</span>
+
+    <div class="chapter-num" data-fx="rise" style="--d:100ms">Part 3 &middot; Provenance</div>
+    <h1 data-split data-split-base="260" data-split-step="50">Watermarks and <em>metadata.</em></h1>
+    <p class="section-dek" data-fx="rise" style="--d:780ms">Three systems and one new law, routinely discussed as though they answered the same question. They do not, and the differences between them are where the useful part lies.</p>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 3</span>
+      <span class="num">14 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       15 — Three systems, three different claims. The meta panel is
+       the slide's actual point.
+       ============================================================ -->
+  <section class="slide slide--choice" data-label="Three systems">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 3 &middot; Three different jobs</p>
+    <h2 class="slide-title" data-split>Three systems, three <em>claims</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:220ms">These are talked about in one breath and answer entirely different questions. Note which of them is about video.</p>
+
+    <div class="slide-body">
+      <div class="ai-choice">
+        <article class="choice-card" data-fx="rise" style="--d:320ms">
+          <span class="choice-num">01</span>
+          <h3>SynthID</h3>
+          <p>An invisible watermark placed in the pixels, and in audio and text, by the model that generated them. <a href="https://ai.google.dev/responsible/docs/safeguards/synthid" target="_blank" rel="noopener">Google's</a>, now adopted by OpenAI, Nvidia, ElevenLabs and Kakao, with over 100 billion assets marked. Veo marks every frame. Its claim: <strong>a participating model made this.</strong></p>
+        </article>
+        <article class="choice-card" data-fx="rise" style="--d:440ms">
+          <span class="choice-num">02</span>
+          <h3>Content Credentials</h3>
+          <p>Cryptographically signed metadata travelling with the file: what created it, what edited it, and when. Signed at capture by Leica, Sony, Nikon, Canon, Samsung and Pixel, and <a href="https://c2pa.org/news/" target="_blank" rel="noopener">TikTok joined the steering committee in July</a>. Its claim: <strong>here is the file's history, if nobody removed it.</strong></p>
+        </article>
+        <article class="choice-card" data-fx="rise" style="--d:560ms">
+          <span class="choice-num">03</span>
+          <h3>Apple Reference Image</h3>
+          <p><a href="https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/" target="_blank" rel="noopener">Announced last night</a>. A camera sensor that signs what it sees at pixel level, developed by Private Cloud Compute into an unalterable reference image held in Photos beside the shot. Its claim: <strong>these pixels came off a physical sensor and are unaltered.</strong></p>
+        </article>
+      </div>
+
+      <aside class="ai-meta" data-fx="rise" style="--d:820ms">
+        <p class="ai-meta-eyebrow">The claim none of them makes</p>
+        <p class="ai-meta-body">Not one of the three says &ldquo;this is true&rdquo;. <em>Two are statements about a tool and one is a statement about a sensor.</em> A signed, watermark-free, sensor-verified video of an event that never happened remains entirely possible: point the signing camera at a good monitor.</p>
+      </aside>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 3</span>
+      <span class="num">15 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       16 — Apple, last night. The most substantial thing shipped
+       here, and four reasons it isn't ours yet.
+       ============================================================ -->
+  <section class="slide slide--spread slide--caveats" data-label="Apple Reference Image">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 3 &middot; Last night, Cupertino</p>
+    <h2 class="slide-title" data-split>A sensor that signs every <em>pixel</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms"><a href="https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/" target="_blank" rel="noopener">Apple's own wording</a>. In Reference mode the signed sensor data becomes an unalterable reference image, a digital negative to hold against whatever was published. The most substantial thing shipped in this area, and explicitly aimed at photojournalists. Four qualifications.</p>
+
+    <div class="slide-body">
+      <ol class="preshare-list">
+        <li data-fx="rise" style="--d:320ms">
+          <span class="preshare-num" aria-hidden="true">01</span>
+          <div>
+            <h3>It is photographs. Not video.</h3>
+            <p>The announcement concerns images throughout; there is no video component in it. For this team the headline feature of the year's largest provenance launch is, today, <strong>not a feature</strong>. Whether it reaches video, and when, is the most useful question anyone here could ask.</p>
+          </div>
+        </li>
+        <li data-fx="rise" style="--d:420ms">
+          <span class="preshare-num" aria-hidden="true">02</span>
+          <div>
+            <h3>It needs new hardware, and it is opt-in</h3>
+            <p>A new sensor, so it will not arrive by software update on any existing handset, and the photographer must be in Reference mode at the moment of capture. <strong>The picture that matters is usually taken by someone not expecting to take it</strong>, on whatever they had.</p>
+          </div>
+        </li>
+        <li data-fx="rise" style="--d:520ms">
+          <span class="preshare-num" aria-hidden="true">03</span>
+          <div>
+            <h3>Not everywhere, and not immediately</h3>
+            <p>Ships with iPhone 18 Pro from 18 September. <a href="https://www.macrumors.com/2026/09/09/apple-reference-image/" target="_blank" rel="noopener">No capture at launch in China or the EU</a>, where iOS 27 can view reference images but not produce them. Outside our jurisdiction, but not outside our European colleagues'.</p>
+          </div>
+        </li>
+        <li data-fx="rise" style="--d:620ms">
+          <span class="preshare-num" aria-hidden="true">04</span>
+          <div>
+            <h3>It proves capture, not truth</h3>
+            <p>These pixels came off this sensor unaltered. It cannot establish that the sensor was pointed at something real, and says nothing about caption or claim, where most of our errors originate. Nor about <strong>the oldest trick there is: filming a screen.</strong></p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 3</span>
+      <span class="num">16 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       17 — How each system is defeated. Four different holes, not
+       one, which is why "just check the metadata" isn't an answer.
+       ============================================================ -->
+  <section class="slide slide--spread" data-label="The holes">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 3 &middot; The hole in all of it</p>
+    <h2 class="slide-title" data-split>All of this is <em>optional</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms">Each system is defeated by something readily available, and the defeats differ in kind. One rule follows from all four: <strong>a mark present is evidence; a mark absent is nothing.</strong></p>
+
+    <div class="slide-body">
+      <div class="probes">
+        <div class="probe" data-fx="rise" style="--d:320ms">
+          <p class="probe-q">Metadata is removable</p>
+          <p class="probe-a">Content Credentials are metadata. A screenshot, a re-encode, or any platform that strips EXIF removes the history, and there are applications built to do precisely that. <strong>The absence of a credential carries no information at all.</strong></p>
+        </div>
+        <div class="probe" data-fx="rise" style="--d:400ms">
+          <p class="probe-q">Watermarks degrade</p>
+          <p class="probe-a">SynthID is distributed across the whole frame and survives a 30% crop and heavy compression, which is good engineering. It does not survive everything. <a href="https://www.newsguardtech.com/special-reports/top-ai-chatbots-dont-recognize-ai-generated-videos/" target="_blank" rel="noopener">The watermarks in the study two slides back came out with a consumer web tool.</a></p>
+        </div>
+        <div class="probe" data-fx="rise" style="--d:480ms">
+          <p class="probe-q">Only participants participate</p>
+          <p class="probe-a">SynthID marks the output of participating models. An open-weights model running on private hardware marks nothing, costs nothing and is good enough. These systems cover the well-behaved end of the market, which is not where the problem is.</p>
+        </div>
+        <div class="probe" data-fx="rise" style="--d:560ms">
+          <p class="probe-q">And then the analogue hole</p>
+          <p class="probe-a">Play the fake on a good monitor. Film the monitor with a signing camera. The result is cryptographically signed, watermark-free provenance for a falsehood. That is not a flaw in anyone's implementation; it is the boundary of what a signature can mean.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 3</span>
+      <span class="num">17 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       18 — The law. Cuttable if we're short, but it explains why
+       watermarking suddenly accelerated this year.
+       ============================================================ -->
+  <section class="slide slide--spread" data-label="The AI Act">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 3 &middot; Since 2 August</p>
+    <h2 class="slide-title" data-split>Disclosure is now a legal <em>duty</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms">The EU AI Act's transparency article took effect five weeks ago. It does not bind us, and it explains the timing of everything else in this section.</p>
+
+    <div class="slide-body">
+      <div class="build-step" data-fx="rise" style="--d:300ms">
+        <p class="build-lead">What it says</p>
+        <p class="build-body"><a href="https://artificialintelligenceact.eu/transparency-rules-article-50/" target="_blank" rel="noopener">Article 50</a> applies from <strong>2 August 2026</strong>. Anyone deploying an AI system to create a deepfake must disclose that the content has been artificially generated or manipulated, and the obligation <strong>does not depend on any intent to deceive</strong>. The Commission published <a href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-ai-transparency-obligations" target="_blank" rel="noopener">guidelines on 20 July</a>, and penalties reach &euro;15m or 3% of worldwide turnover.</p>
+      </div>
+
+      <div class="build-step richer" data-fx="rise" style="--d:420ms">
+        <p class="build-lead">What it changes for us</p>
+        <p class="build-body">Little, directly. The exemption in the drafting covers evidently artistic, creative, satirical or fictional work, which is <strong>not a journalism exemption</strong>; if it ever bears on a piece it needs proper advice rather than a slide. What the Act does is make machine-readable labelling commercially unavoidable for the large providers, which is much of why SynthID adoption accelerated this year.</p>
+      </div>
+
+      <p class="act-note" data-fx="rise" style="--d:560ms"><strong>The uncomfortable reading.</strong> The marks now appearing in the pixels are a response to regulation and liability rather than a decision that provenance was worth having. That works either way, but it indicates where the marks will stop: at the edge of what is enforceable, which is well short of where our problem sits.</p>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 3</span>
+      <span class="num">18 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       19 — Section opener: Part 4
+       ============================================================ -->
+  <section class="slide ink section-opener" data-label="Part 4 opener">
+    <div class="rule-band"></div>
+    <span class="chapter-ghost" aria-hidden="true" data-fx="ghost" style="--d:150ms">04</span>
+
+    <div class="chapter-num" data-fx="rise" style="--d:100ms">Part 4 &middot; What we do</div>
+    <h1 data-split data-split-base="260" data-split-step="50">So, <em>Monday.</em></h1>
+    <p class="section-dek" data-fx="rise" style="--d:780ms">The unglamorous answer, and the correct one. None of it is new. All of it is harder than it was.</p>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 4</span>
+      <span class="num">19 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       20 — The method, first half. The two checks that rest on
+       judgement. Split from 21 because four of these on one slide
+       is a wall of text in a room.
+       ============================================================ -->
+  <section class="slide slide--ways slide--spread" data-label="The method: people">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 4 &middot; The method that still works &middot; 1 of 2</p>
+    <h2 class="slide-title" data-split>Start with the <em>people</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms">In order of value, and the order is the argument. These two come first because they rest on judgement, which is the part that has not been automated. The tools appear on the next slide, last.</p>
+
+    <div class="slide-body">
+      <ol class="ways-list">
+        <li class="way" data-fx="rise" style="--d:320ms">
+          <span class="way-num">01</span>
+          <div class="way-main">
+            <h3>Provenance of the person, not the file</h3>
+            <p class="way-why">Who supplied this, how did they come by it, what else have they sent us, and will they take a call. A model can imitate footage. It cannot imitate a person with a history who answers the phone. This is the only check on the list that has <strong>increased</strong> in value, and it costs time that is rarely budgeted for.</p>
+          </div>
+          <p class="way-ask">&ldquo;Who filmed this, on what, and can you send me the original from the phone rather than the copy from WhatsApp?&rdquo;</p>
+        </li>
+        <li class="way" data-fx="rise" style="--d:480ms">
+          <span class="way-num">02</span>
+          <div class="way-main">
+            <h3>The too-good-to-be-true test</h3>
+            <p class="way-why">Does the material land precisely on what somebody wants to be true, ourselves included? Fabrications are built to be shared, so they tend to be unusually well composed and unusually convenient. After Maduro's removal in January, <a href="https://www.cnbc.com/2026/01/06/ai-generated-deepfake-videos-venezuelan-viral-us-military-maduro-misinformation.html" target="_blank" rel="noopener">the AI footage in circulation showed crowds celebrating exactly what those sharing it wanted celebrated</a>. Fox News presented one as genuine before withdrawing the article.</p>
+          </div>
+          <p class="way-ask">&ldquo;If this is real, who benefits from my believing it, and does that make me want it to be real?&rdquo;</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 4</span>
+      <span class="num">20 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       21 — The method, second half. Corroboration, then the
+       machines last. The warn note is the operational ask.
+       ============================================================ -->
+  <section class="slide slide--ways slide--spread" data-label="The method: machines">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 4 &middot; The method that still works &middot; 2 of 2</p>
+    <h2 class="slide-title" data-split>Then, and only then, the <em>machines</em>.</h2>
+
+    <div class="slide-body">
+      <ol class="ways-list">
+        <li class="way" data-fx="rise" style="--d:260ms">
+          <span class="way-num">03</span>
+          <div class="way-main">
+            <h3>Corroborate outside the frame</h3>
+            <p class="way-why">Light direction and shadow length against the stated time. Signage, plates, uniforms, weather and architecture against the stated place. Other footage of the same moment from another angle. <strong>A generated clip has no other angle</strong>, and no second source that agrees with it in detail. This is where the surviving tells belong: a reason to look harder, never a verdict.</p>
+          </div>
+          <p class="way-ask">&ldquo;What else must be true if this is true, and can any of it be checked independently?&rdquo;</p>
+        </li>
+        <li class="way" data-fx="rise" style="--d:420ms">
+          <span class="way-num">04</span>
+          <div class="way-main">
+            <h3>And then, if it helps, the tools</h3>
+            <p class="way-why">Look for Content Credentials. Run a SynthID check. Use a detector. A positive result is a genuinely useful lead. <strong>A negative result carries almost no information</strong>, and the figures in Part 2 are why. The rule that follows: a clean detector score must never be the reason we published.</p>
+          </div>
+          <p class="way-ask">&ldquo;Would I still run this if the detector had returned the opposite answer?&rdquo;</p>
+        </li>
+      </ol>
+
+      <p class="act-note warn" data-fx="rise" style="--d:600ms"><strong>The operational gap.</strong> All of the above assumes a handful of items a week need this treatment. The week when many of them do requires two decisions taken in advance: that <em>&ldquo;we have been unable to verify this footage&rdquo;</em> is publishable copy, and that a named person on shift may say it on deadline without escalating to three people who are asleep.</p>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 4</span>
+      <span class="num">21 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       22 — The liar's dividend. The failure that is actually
+       happening more often than the one everyone worries about.
+       ============================================================ -->
+  <section class="slide slide--spread" data-label="The other risk">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 4 &middot; The risk that runs the other way</p>
+    <h2 class="slide-title" data-split>The bigger risk isn't the <em>fake</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms">Discussion of this defaults to the fabrication we might publish. The failure occurring more often, and the one we are least organised for, is genuine material being dismissed. Legal scholars named it <a href="https://en.wikipedia.org/wiki/Liar%27s_dividend" target="_blank" rel="noopener">the liar's dividend</a> in 2018, before any of this worked.</p>
+
+    <div class="slide-body">
+      <div class="probes">
+        <div class="probe" data-fx="rise" style="--d:320ms">
+          <p class="probe-q">A vice-presidential candidate in Ghana</p>
+          <p class="probe-a"><a href="https://www.techpolicy.press/five-real-world-failures-expose-need-for-effective-detection-of-ai-generated-media/" target="_blank" rel="noopener">A genuine video, with clear authenticity markers, dismissed as a deepfake.</a> The doubt did the work the fake would have done, at no cost to whoever raised it.</p>
+        </div>
+        <div class="probe" data-fx="rise" style="--d:400ms">
+          <p class="probe-q">Footage from a White House window</p>
+          <p class="probe-a">The material went viral, was <a href="https://prospect.org/2026/04/17/american-politics-inundated-with-ai-deepfakes/" target="_blank" rel="noopener">confirmed genuine by the President's own team</a>, and was then attributed to AI by the President. The confirmation was already on the record and made no difference.</p>
+        </div>
+        <div class="probe" data-fx="rise" style="--d:480ms">
+          <p class="probe-q">The proof-of-life video</p>
+          <p class="probe-a">Netanyahu in March, obliged to display a five-fingered hand to answer people who believed his own footage was synthetic. When the denial is available to everyone, everyone uses it, including those telling the truth.</p>
+        </div>
+        <div class="probe" data-fx="rise" style="--d:560ms">
+          <p class="probe-q">What it costs</p>
+          <p class="probe-a">Renee Hobbs's formulation: the danger is not only that people are deceived, but that <a href="https://www.nbcnews.com/tech/tech-news/experts-warn-collapse-trust-online-ai-deepfakes-venezuela-rcna252472" target="_blank" rel="noopener">they stop caring whether something is true</a>, <strong>which is worse.</strong> Our masthead is a claim about precisely that, and it is worth more in this environment, not less.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 4</span>
+      <span class="num">22 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       23 — THE POINT OF THE SESSION. Six questions, each with a
+       starting position attached so there is something concrete to
+       push against. This slide can sit on screen while we talk.
+       ============================================================ -->
+  <section class="slide" data-label="Discussion">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Part 4 &middot; Over to you</p>
+    <h2 class="slide-title" data-split>Six questions for the <em>room</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms">None has a settled answer. A starting position is attached to each, to argue with.</p>
+
+    <div class="slide-body">
+      <ol class="opts wide">
+        <li class="opt-row" data-fx="rise" style="--d:280ms"><span class="opt-n">01</span><div class="opt-main"><strong>Do we label our own use, and where?</strong><span>The <a href="https://www.broadcastnow.co.uk/production-and-post/bbc-sets-protocol-for-generative-ai-content/5200816.article" target="_blank" rel="noopener">BBC's position</a>: audiences should never feel misled about where AI has been applied. Ours: at the point of viewing, not in a policy, and never a blanket notice</span></div></li>
+        <li class="opt-row" data-fx="rise" style="--d:340ms"><span class="opt-n">02</span><div class="opt-main"><strong>What is our threshold for video we cannot verify?</strong><span>That &ldquo;we have been unable to verify this footage&rdquo; becomes ordinary publishable copy rather than grounds to spike, or we lose to those with no threshold at all</span></div></li>
+        <li class="opt-row" data-fx="rise" style="--d:400ms"><span class="opt-n">03</span><div class="opt-main"><strong>Do we buy any of this tooling?</strong><span>Nothing on detectors. Something on the unglamorous end: a fast route to originals from a source's phone, and somewhere to keep the working</span></div></li>
+        <li class="opt-row" data-fx="rise" style="--d:460ms"><span class="opt-n">04</span><div class="opt-main"><strong>Who decides at eleven at night?</strong><span>The decisions that will damage us will not be taken in a meeting. Do the people on late shifts know what they may say on air, and whom they wake?</span></div></li>
+        <li class="opt-row" data-fx="rise" style="--d:520ms"><span class="opt-n">05</span><div class="opt-main"><strong>Do we generate anything, ever?</strong><span>Reconstruction, illustration, anonymising a contributor. The boundary is not obvious, and better drawn deliberately than discovered</span></div></li>
+        <li class="opt-row" data-fx="rise" style="--d:580ms"><span class="opt-n">06</span><div class="opt-main"><strong>What happens the first time we are the target?</strong><span>Not if. A convincing fake of a correspondent, or of our own output carrying our branding. That response must exist before the day it is needed</span></div></li>
+      </ol>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Part 4</span>
+      <span class="num">23 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       24 — Appendix. A draft to amend or bin; a discussion that
+       ends without anything written down tends to just end.
+       ============================================================ -->
+  <section class="slide slide--rules slide--rules-dense" data-label="Appendix: house rules">
+    <div class="rule-band"></div>
+
+    <p class="kicker" data-fx="rise" style="--d:60ms">Appendix &middot; A draft for discussion</p>
+    <h2 class="slide-title" data-split>Five lines, to be <em>amended</em>.</h2>
+    <p class="slide-subtitle" data-fx="rise" style="--d:200ms">A first attempt at something short enough to put on a wall. Offered as a starting point, not a proposal.</p>
+
+    <div class="slide-body">
+      <ul class="rules-list">
+        <li class="rule-row" data-fx="rise" style="--d:280ms">
+          <span class="rule-tag">01</span>
+          <div>
+            <h3>The source outranks the file</h3>
+            <p>No clip we cannot trace to a person is published without the words that say so.</p>
+          </div>
+        </li>
+        <li class="rule-row" data-fx="rise" style="--d:360ms">
+          <span class="rule-tag">02</span>
+          <div>
+            <h3>A detector is a lead, never a clearance</h3>
+            <p>We may act on a positive result. We never rely on a negative one, and we never cite it as our reason.</p>
+          </div>
+        </li>
+        <li class="rule-row" data-fx="rise" style="--d:440ms">
+          <span class="rule-tag">03</span>
+          <div>
+            <h3>Always ask for the original</h3>
+            <p>From the device, not the platform. As reflex, on everything, before it is the item that matters.</p>
+          </div>
+        </li>
+        <li class="rule-row" data-fx="rise" style="--d:520ms">
+          <span class="rule-tag">04</span>
+          <div>
+            <h3>State what is not known</h3>
+            <p>&ldquo;We have been unable to verify this footage&rdquo; is publishable. Silence and borrowed confidence are not.</p>
+          </div>
+        </li>
+        <li class="rule-row" data-fx="rise" style="--d:600ms">
+          <span class="rule-tag">05</span>
+          <div>
+            <h3>Authenticating our own work is half the job</h3>
+            <p>When our footage is called a fake, we need to show the working within the hour. That is a filing discipline, not a technology.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true &middot; Appendix</span>
+      <span class="num">24 / NN</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       25 — Close
+       ============================================================ -->
+  <section class="slide ink slide--research slide--thanks" data-label="Close">
+    <div class="rule-band"></div>
+
+    <p class="research-eyebrow" data-fx="rise" style="--d:80ms">Where that leaves us</p>
+    <p class="research-quote" data-split data-split-base="220" data-split-step="26">The models improved at everything except being <em>checkable</em>. So we improve at checking.</p>
+    <p class="research-sub" data-fx="rise" style="--d:1500ms">Every figure in this deck links to its source from the slide it sits on, and all of them are listed on the About page.</p>
+
+    <div class="slide-foot">
+      <span class="wm">Too good to be true</span>
+      <span class="num">25 / NN</span>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+<script src="motion.js"></script>
+<script src="grid-overlay.js"></script>
+
+</body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="en-GB"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · Too good to be true</title>
+<meta name="description" content="What the synthetic video deck is, how it was made, where every figure came from, and a diary of what changed and why.">
+<link rel="preconnect" href="https://assets.guim.co.uk" crossorigin>
+<style>
+  /* The deck's stylesheet is built around a fixed 1920×1080 stage, so
+     this page carries its own layout. The fonts, the palette and the
+     editorial register are deliberately the same. */
+
+  @font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('https://assets.guim.co.uk/static/frontend/fonts/guardian-headline/noalts-not-hinted/GHGuardianHeadline-Medium.woff2') format('woff2');
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('https://assets.guim.co.uk/static/frontend/fonts/guardian-headline/noalts-not-hinted/GHGuardianHeadline-Bold.woff2') format('woff2');
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'GuardianTextEgyptian';
+    src: url('https://assets.guim.co.uk/static/frontend/fonts/guardian-textegyptian/noalts-not-hinted/GuardianTextEgyptian-Regular.woff2') format('woff2');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'GuardianTextEgyptian';
+    src: url('https://assets.guim.co.uk/static/frontend/fonts/guardian-textegyptian/noalts-not-hinted/GuardianTextEgyptian-Bold.woff2') format('woff2');
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'GuardianTextSans';
+    src: url('https://assets.guim.co.uk/static/frontend/fonts/guardian-textsans/noalts-not-hinted/GuardianTextSans-Bold.woff2') format('woff2');
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+
+  :root {
+    --paper: #F4EFE6;
+    --paper-deep: #E8DFD0;
+    --paper-rule: #D0C4AE;
+    --ink: #121212;
+    --ink-soft: #3d3a35;
+    --ink-mute: #6f6b63;
+    --guardian-blue: #052962;
+    --guardian-yellow: #FFE500;
+    --news-red: #C70000;
+    --eco-green: #22874d;
+    --display: 'GH Guardian Headline', Georgia, 'Times New Roman', serif;
+    --body: 'GuardianTextEgyptian', Georgia, 'Times New Roman', serif;
+    --ui: 'GuardianTextSans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --mono: 'Menlo', 'SF Mono', 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 19px;
+    line-height: 1.62;
+  }
+
+  .band { height: 8px; display: flex; }
+  .band i { flex: 1; }
+  .band i:first-child { background: var(--guardian-blue); flex: 3; }
+  .band i:last-child { background: var(--guardian-yellow); }
+
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 0 24px 96px; }
+
+  header.masthead { padding: 56px 0 34px; border-bottom: 2px solid var(--ink); margin-bottom: 40px; }
+  .eyebrow {
+    font-family: var(--ui);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--news-red);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(38px, 7vw, 60px);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    margin: 0 0 18px;
+  }
+  h1 em { color: var(--news-red); font-style: italic; }
+  .standfirst {
+    font-size: clamp(19px, 2.4vw, 22px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 34rem;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(26px, 4vw, 33px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 48px 0 14px;
+  }
+  h3 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(21px, 3vw, 25px);
+    line-height: 1.15;
+    margin: 32px 0 10px;
+  }
+  p { margin: 0 0 18px; }
+  a { color: var(--guardian-blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--news-red); }
+  a:focus-visible { outline: 3px solid var(--news-red); outline-offset: 3px; }
+  strong { font-weight: 700; }
+  code {
+    font-family: var(--mono);
+    font-size: 0.88em;
+    background: var(--paper-deep);
+    padding: 2px 6px;
+    border-radius: 3px;
+    word-break: break-word;
+  }
+
+  .lede-panel {
+    background: var(--paper-deep);
+    border-left: 5px solid var(--guardian-blue);
+    padding: 22px 26px 6px;
+    margin: 0 0 20px;
+  }
+
+  ul.plain { list-style: none; margin: 0 0 20px; padding: 0; }
+  ul.plain li {
+    padding: 11px 0 11px 26px;
+    border-top: 1px solid var(--paper-rule);
+    position: relative;
+  }
+  ul.plain li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 21px;
+    width: 9px; height: 9px;
+    background: var(--news-red);
+  }
+
+  /* The diary */
+  .entry { padding-top: 34px; margin-top: 34px; border-top: 1px solid var(--paper-rule); }
+  .entry:first-of-type { border-top: 2px solid var(--ink); }
+  .entry-meta {
+    font-family: var(--ui);
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  .tag {
+    color: var(--paper);
+    background: var(--eco-green);
+    padding: 3px 9px;
+    letter-spacing: 0.1em;
+  }
+  .tag.milestone { background: var(--news-red); }
+  .entry h3 { margin-top: 0; }
+
+  footer.foot {
+    margin-top: 64px;
+    padding-top: 22px;
+    border-top: 2px solid var(--ink);
+    font-family: var(--ui);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--ink-mute);
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 17px; }
+    .wrap { padding-bottom: 64px; }
+    header.masthead { padding-top: 36px; }
+  }
+</style>
+</head><body>
+
+<div class="band" aria-hidden="true"><i></i><i></i></div>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">About this deck</p>
+    <h1>Too good to be <em>true.</em></h1>
+    <p class="standfirst">Twenty-five slides on where synthetic video has actually got to, built for a video team discussion on 10 September 2026. This page is the deck's working memory: what it is, how it's made, where every figure came from, and what changed and why.</p>
+  </header>
+
+  <h2>What this is</h2>
+
+  <div class="lede-panel">
+    <p>A deck built to start an argument rather than settle one. It marks the milestones of the last eighteen months, sets out which verification tells still work and which have quietly died, walks through SynthID, Content Credentials and Apple's Reference Image announcement, and then puts six open questions to the room.</p>
+  </div>
+
+  <p>The argument running underneath it is deliberately unfashionable: <strong>AI detection is not going to solve this, and pretending otherwise is worse than useless.</strong> Normal verification - who sent the footage, where were they, what else corroborates it, and does it happen to say precisely what somebody wanted said - is not a fallback for when the tools fail. It's the method. The tools are a lead at best.</p>
+
+  <p>The deck is driven by hand. Arrow keys or space to advance, <code>R</code> to reset, <code>G</code> to draw the underlying grid, and Cmd-P then Save as PDF for a one-slide-per-page export at 1920&times;1080. Slide 23 is the point of the session; everything before it exists to make that conversation better informed.</p>
+
+  <ul class="plain">
+    <li><strong>Parts 1 and 2 are the briefing.</strong> What changed, and which of our checks survived it.</li>
+    <li><strong>Part 3 is the provenance section</strong>, and it's the part most likely to date fastest. Apple's announcement was nine hours old when the deck was written.</li>
+    <li><strong>Part 4 is the argument.</strong> Six provocations with my own instinct attached to each, so there's something concrete to push against, plus an optional draft of five house rules nobody asked me for.</li>
+  </ul>
+
+  <h2>How it's made</h2>
+
+  <p>Plain HTML and CSS, no build step and no framework. It's built from the <a href="https://github.com/peter-guillam123/guardian-deck-template">Guardian deck template</a>, which supplies a <code>&lt;deck-stage&gt;</code> web component for navigation and scaling, a design system carrying the real Guardian font cuts, and a choreography engine for the reveals. Slides are markup; new components get appended to the stylesheet rather than forked into the page.</p>
+
+  <p>Four components are new for this deck: the rising milestone track on slide 5, the dated ledger on slide 6, the count-up scoreboard on slide 13, and the live-tells / dead-tells pair on slide 11. The strikethrough on the dead tells is doing real work, so it's a typographic decision rather than a decorative one.</p>
+
+  <p>It deploys to GitHub Pages on push. The fonts load from Guardian servers, so it wants a network connection to look right, though it degrades to Georgia rather than breaking.</p>
+
+  <h2>Where the figures come from</h2>
+
+  <p>Every specific example links to its source from the slide it sits on, as anchor text in the running copy rather than as a footnote: the NewsGuard study from the scoreboard's opening line, Apple's newsroom post from the Reference Image slide, the Genie 3, Marble and Atlas announcements from the ledger's accent words. Twenty targets, each checked before it went in, and all of them listed again in the repository's <a href="https://github.com/peter-guillam123">README</a>. Three deserve flagging here because they are the ones most likely to be quoted back:</p>
+
+  <ul class="plain">
+    <li><strong>The 95 / 92.5 / 78 detection failure rates</strong> are one study: NewsGuard, January 2026, twenty AI videos of documented false claims with the watermarks stripped, forty prompts per chatbot. They measure a general-purpose chatbot being asked a question, not a purpose-built forensic tool.</li>
+    <li><strong>The 75.5% human figure</strong> is the inverse of separate research finding people correctly identified high-quality deepfake video 24.5% of the time. Different study, different task. The slide says so, and it should stay saying so: it belongs there as an order of magnitude, not a like-for-like comparison.</li>
+    <li><strong>The Venezuela example</strong> - Fox News presenting an AI clip as real in a piece it then removed - comes from CNBC's January reporting. Worth a second look before anyone repeats it from a stage.</li>
+  </ul>
+
+  <h2>Diary</h2>
+
+  <article class="entry">
+    <p class="entry-meta"><span class="tag">Change</span><span>10 September 2026</span></p>
+    <h3>Rewritten for the room, and sourced from the slides</h3>
+
+    <p>Read the whole thing back as though standing in front of an audience and found the register wrong in places. It was too conversational, and several slides were written more for the presenter than for the people looking at them. Lines like &ldquo;tell me if I'm overreading it&rdquo; are fine in a notebook and odd on a screen behind you.</p>
+
+    <p>So the body copy is now in presentation register throughout, on one rule: <strong>the slide carries the claim and the presenter carries the detail.</strong> Most glosses came down to a single line. The dated ledger is the clearest example, six entries each stating one thing, where before it ran to seven entries wrapping over two lines apiece.</p>
+
+    <p>That turned out to be the same fix as the layout problem. The ledger, the world models slide and the leaderboard had all been crowding the bottom rule. The underlying cause was structural rather than editorial: the folio is absolutely positioned and its rule lands exactly on the type-area bottom, so a full slide body finished flush against it with no breathing space at all. Content slides now reserve a band above the rule, and with the shorter copy on top of that, all twenty-five clear it with room to spare.</p>
+
+    <p>The other addition is source links, inline. Every specific example now points at the thing it came from as anchor text in the copy: NewsGuard from the scoreboard, Apple's newsroom post from the Reference Image slide, the Genie 3 and Atlas announcements from the ledger. A deck arguing that claims should be checkable ought to be checkable from the slide rather than from a list at the back.</p>
+  </article>
+
+  <article class="entry">
+    <p class="entry-meta"><span class="tag milestone">Milestone</span><span>10 September 2026</span></p>
+    <h3>Built, in a morning, the day of the session</h3>
+
+    <p>Apple announced Reference Image the previous evening, which forced the shape of the deck more than anything else did. The instinct was to lead with it: a camera sensor that cryptographically signs every pixel it sees is the most serious thing anyone has shipped on provenance, and it's explicitly pitched at photojournalists.</p>
+
+    <p>But it's for photographs. There is no video component anywhere in the announcement. So it sits in Part 3 as the fourth beat rather than the headline, with four caveats attached, and the first caveat is the one that matters to a video team: <strong>the biggest provenance launch of the year is, for us, currently not a feature.</strong> Whether it comes to video, and when, is the single most useful question anyone on the team could go and ask.</p>
+
+    <p>The other structural decision was to give automated detection its own slide with the numbers on it, rather than asserting that detectors don't work. Four figures counting up from zero, three of them machines and one of them us, all above 75%. It should be uncomfortable, and it should be uncomfortable in both directions: the machines are not better than we are, and we are not good.</p>
+
+    <p>The counterweight to all of it is slide 22, on the liar's dividend. Every discussion of this defaults to the fabrication we might publish. The failure actually happening more often in 2026 is the real thing being waved away as AI, and that one is harder to defend against, because the defence is reputational rather than technical.</p>
+  </article>
+
+  <article class="entry">
+    <p class="entry-meta"><span class="tag">Fix</span><span>10 September 2026</span></p>
+    <h3>The body font has been broken this whole time</h3>
+
+    <p>Found while checking that the fonts had actually loaded rather than assuming they had. The shared stylesheet points at <code>GuardianTextEgyptian-Reg.woff2</code>, which 403s. The file is called <code>GuardianTextEgyptian-Regular.woff2</code>.</p>
+
+    <p>The effect is quiet, which is why it survived: the regular weight of the body font silently fell back to Georgia while the bold and the italic loaded correctly, so every deck built on this template has been setting body copy in two families at once and looking very slightly wrong in a way nobody could name. Fixed here. <strong>The same line is in the Vibecoding and Board and Trust decks and needs the same one-word change.</strong></p>
+  </article>
+
+  <article class="entry">
+    <p class="entry-meta"><span class="tag">Change</span><span>10 September 2026</span></p>
+    <h3>The method slide became two slides</h3>
+
+    <p>Four verification steps on one slide overflowed the stage by about 440 pixels, which was the honest signal that it was also four steps too many for a room to read at once. Split into "start with the people" and "then, and only then, the machines".</p>
+
+    <p>The split turns out to be better than the fix it was forced by. The ordering was always the argument - provenance of the person first, the tooling last and lightly - and putting a slide break between them makes that ordering impossible to skim past.</p>
+  </article>
+
+  <footer class="foot">
+    <p>Built with Claude Code. Chris Moran, Guardian.</p>
+  </footer>
+
+</div>
+
+</body></html>
