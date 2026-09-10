@@ -158,15 +158,28 @@ Every figure on a slide, in slide order.
 
 **Part 3 — provenance**
 
-- SynthID: 100bn+ assets, adoption by OpenAI, Nvidia, ElevenLabs, Kakao;
-  Veo marking every frame; 30% crop + compression robustness and its
-  limits:
+- SynthID and video. It is not still-image checking bolted onto video:
+  every frame is marked, the marks are coordinated across frames to survive
+  compression and frame interpolation, and watermark strength varies with
+  motion (stronger in static regions, subtler in high motion):
+  [Google DeepMind](https://deepmind.google/blog/watermarking-ai-generated-text-and-video-with-synthid/)
+- SynthID generally: adoption by OpenAI, Nvidia, ElevenLabs and Kakao;
+  30% crop + compression robustness and its limits:
   [textsight](https://www.textsight.ai/blog/google-synthid-watermarking-explained/),
   [buildmvpfast](https://www.buildmvpfast.com/blog/synthid-content-provenance-c2pa-watermarking-ai-2026)
-- C2PA: capture signing on Leica / Sony / Nikon / Canon / Samsung / Pixel;
-  TikTok joining the steering committee, 28 July 2026:
-  [C2PA announcements](https://c2pa.org/news/),
+- **C2PA video capture signing exists.** Sony was first: Alpha 1 II, Alpha
+  9 III, FX3, FX30 and the PXW-Z300 camcorder from October 2025, with the
+  Alpha 7R V, Alpha 7 IV and Alpha 1 following from November 2025 and the
+  Alpha 7S III from 2026. It runs through Sony's Camera Authenticity
+  Solution on a one-year licence, and the verification site can trim a long
+  file and keep the signature valid on the extract, which is the part a
+  video desk would actually use. Pixel 8, 9 and 10 gained Content
+  Credentials on video captures by July 2026:
+  [Sony](https://alphauniverse.com/stories/sony-launches-first-video-ready-camera-authenticity-solution-for-newsrooms/),
   [c2paviewer supported devices](https://c2paviewer.com/supported-devices)
+- C2PA stills capture (Leica, Nikon, Canon EOS R1 / R5 II, Samsung) and
+  TikTok joining the steering committee, 28 July 2026:
+  [C2PA announcements](https://c2pa.org/news/)
 - OpenAI joining the C2PA steering committee and committing to SynthID,
   19 May 2026:
   [c2paviewer](https://c2paviewer.com/articles/openai-google-c2pa-synthid-2026)
@@ -203,6 +216,39 @@ Every figure on a slide, in slide order.
 
 ## Changelog
 
+### 10 September 2026 — Corrected the video claim
+
+The deck had been asserting that the provenance systems are all "strongest
+on stills" and that video is "the poor relation". That was wrong, and it
+was wrong in the one area the audience knows best.
+
+SynthID handles video properly rather than by accident: every frame is
+marked, the marks are coordinated across frames to survive compression and
+frame interpolation, and watermark strength varies with motion. And C2PA
+video capture signing exists, which the deck had missed entirely: Sony has
+been signing video in camera since October 2025 on a specific list of
+bodies, under a one-year licence, with a verification site that can trim a
+long file and keep the signature valid on the extract.
+
+So the corrected proposition is narrower and more useful. Provenance for
+video works; what it describes is the tool rather than the truth, and it
+only ever covers those who opt in. Apple Reference Image really is
+photographs only, which now reads as a fact about Apple rather than as a
+fact about the whole field, and slide 16 points at Sony as the video
+equivalent instead of asking an open question.
+
+Fixed in five places: the cover, the third proposition on slide 2, the
+subtitle and two of the three cards on slide 15, and the first caveat on
+slide 16.
+
+### 10 September 2026 — "Three propositions" as the headline
+
+Slide 2's standfirst was doing two jobs and neither well. It is now a
+proper slide title, which also makes slide 2 consistent with every other
+content slide in the deck. Removing it left 222px of slack, so the three
+columns took on the weight the standfirst had: larger type, a thicker rule
+and real air between rule and text.
+
 ### 10 September 2026 — Presentation pass
 
 Read back as though standing in front of the room and found the register
@@ -226,7 +272,7 @@ than seven.
 
 Twenty-five slides, written the morning of the session. Apple's Reference
 Image announcement the previous evening set the shape: it's the most
-serious provenance work anyone has shipped, and it's for photographs, so
+serious provenance work anyone has shipped, and Apple's is for photographs, so
 it sits as the fourth beat of Part 3 rather than the headline, with the
 "not a feature for us" caveat first.
 

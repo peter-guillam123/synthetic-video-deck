@@ -237,6 +237,19 @@
   <h2>Diary</h2>
 
   <article class="entry">
+    <p class="entry-meta"><span class="tag">Fix</span><span>10 September 2026</span></p>
+    <h3>The video claim was wrong, and wrong in the worst place</h3>
+
+    <p>The deck had been saying that SynthID, Content Credentials and Apple Reference Image are all &ldquo;strongest on stills&rdquo;, and that video is &ldquo;the poor relation&rdquo;. Flagged in review as a little nuanced, which was generous. It was wrong, and wrong in the one area the audience knows better than the deck does.</p>
+
+    <p><strong>SynthID handles video properly</strong>, not as still-image checking bolted onto a sequence of frames. Every frame is marked, the marks are coordinated across frames so they survive compression and frame interpolation, and the watermark strength varies with motion, stronger in static regions and subtler where there is movement to hide in.</p>
+
+    <p><strong>And video capture signing exists</strong>, which the deck had missed altogether. Sony has been signing video in camera since October 2025 on a specific list of bodies, under a one-year licence, with a verification site that will trim a long file and keep the signature valid on the extract. That last detail is the one a video desk would actually use, and it is a more useful thing to know than anything on the Apple slide.</p>
+
+    <p>So the corrected proposition is narrower and better: provenance for video works, what it describes is the tool rather than the truth, and it only ever covers those who choose to opt in. Apple Reference Image is still photographs only, but that now reads as a fact about Apple rather than a fact about the field. Corrected in five places, because a claim this central had propagated: the cover, slide 2, the subtitle and two cards on slide 15, and the first caveat on slide 16.</p>
+  </article>
+
+  <article class="entry">
     <p class="entry-meta"><span class="tag">Change</span><span>10 September 2026</span></p>
     <h3>Rewritten for the room, and sourced from the slides</h3>
 
@@ -255,7 +268,7 @@
 
     <p>Apple announced Reference Image the previous evening, which forced the shape of the deck more than anything else did. The instinct was to lead with it: a camera sensor that cryptographically signs every pixel it sees is the most serious thing anyone has shipped on provenance, and it's explicitly pitched at photojournalists.</p>
 
-    <p>But it's for photographs. There is no video component anywhere in the announcement. So it sits in Part 3 as the fourth beat rather than the headline, with four caveats attached, and the first caveat is the one that matters to a video team: <strong>the biggest provenance launch of the year is, for us, currently not a feature.</strong> Whether it comes to video, and when, is the single most useful question anyone on the team could go and ask.</p>
+    <p>But it's for photographs. There is no video component anywhere in the announcement. So it sits in Part 3 as the fourth beat rather than the headline, with four caveats attached, and the first caveat is the one that matters to a video team: <strong>the biggest provenance launch of the year is, for us, currently not a feature.</strong></p>
 
     <p>The other structural decision was to give automated detection its own slide with the numbers on it, rather than asserting that detectors don't work. Four figures counting up from zero, three of them machines and one of them us, all above 75%. It should be uncomfortable, and it should be uncomfortable in both directions: the machines are not better than we are, and we are not good.</p>
 

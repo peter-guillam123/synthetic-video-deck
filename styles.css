@@ -3135,3 +3135,15 @@ a.chat-bubble:hover { background: var(--guardian-blue); color: var(--paper); }
 @media (prefers-reduced-motion: reduce) {
   .dg-card button { transition: none; }
 }
+
+/* ============================================================
+   43 · The propositions slide
+   With the standfirst gone the three columns carry the slide on
+   their own, so they get the weight the lede used to have: larger
+   type, a thicker rule, and real air between the rule and the text.
+   ============================================================ */
+.slide--props .brief-cols { gap: 44px; }
+.slide--props .brief-col { border-top-width: 5px; padding-top: 26px; }
+.slide--props .brief-eyebrow { font-size: 19px; margin-bottom: 16px; }
+.slide--props .brief-body { font-size: 27px; line-height: 1.44; }
+.slide--props .act-note { font-size: 24px; line-height: 1.5; }
