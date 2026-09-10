@@ -27,7 +27,7 @@
   // Set this with the one-liner in README.md ("Setting the password").
   // Until it holds a real SHA-256 the gate is locked to everyone, which is
   // the safe way for it to fail.
-  const HASH = 'e4f62f4915d31c302f21a42c91b166dddc8dddd7243cfdb8a830ab5f13555d6c';
+  const HASH = 'b1e2c6f300f53d32192059012937ac3c1c6568cfe275f96f7803c2f33f276efd';
 
   const unlock = () => {
     try { sessionStorage.setItem(KEY, '1'); } catch (e) { /* ignore */ }
